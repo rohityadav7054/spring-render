@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #6dd5fa, #2980b9);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    form:hover {
+      transform: scale(1.01);
+    }
+
+    div {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #3498db;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    @media (max-width: 480px) {
+      form {
+        padding: 20px;
+        margin: 10px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input,
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form data-th-action="@{contactprocess}" data-th-object="${user}" data-th-method="post"> 
+    <div>
+      <label for="name">Enter Your Name</label>
+      <input type="text" name="name" placeholder="Your Name" required />
+    </div>
+    <div>
+      <label for="email">Enter Your Email</label>
+      <input type="email" name="email" placeholder="Your Email" required />
+    </div>
+    <div>
+      <label for="password">Enter Your Password</label>
+      <input type="password" name="password" placeholder="Your Password" required />
+    </div>
+    <button type="submit">Save</button>
+  </form>
+
+</body>
+</html>

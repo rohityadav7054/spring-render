@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update User</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #fceabb, #f8b500);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffffdd;
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #f8b500;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #f8b500;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d49800;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            input, button {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Update User</h1>
+        <form th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" th:field="*{name}" id="name" required />
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" th:field="*{email}" id="email" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" th:field="*{password}" id="password" required />
+            </div>
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+ 
